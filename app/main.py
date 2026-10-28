@@ -149,3 +149,17 @@ def generate_v2(year: int, month: int) -> Plan:
         return plan_month(year, month, staff, demands, HOLIDAYS)
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+# Persistent API is separate from the retained, stateless prototype endpoints.
+from app.api import router
+app.include_router(router)
+
+from fastapi import Request
+from fastapi.responses import JSONResponse
+from sqlalchemy.exc import SQLAlchemyError
+import logging
+
+@app.exception_handler(SQLAlchemyError)
+async def database_error(request: Request, exc: SQLAlchemyError):
+    logging.getLogger('roster').error('Database operation failed: %s', type(exc).__name__)
+    return JSONResponse(status_code=503, content={'detail': {'code': 'database_unavailable', 'message': 'Database is unavailable or not initialized. Check server configuration.'}})

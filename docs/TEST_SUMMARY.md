@@ -12,7 +12,7 @@ Executed 28 October 2026 in the provided development environment.
 | Production npm dependencies | npm audit --omit=dev --audit-level=high | Zero vulnerabilities reported |
 | Browser E2E | frontend/e2e/workflow.spec.ts, isolated SQLite, real Chromium | 1 passed |
 | Hosted PostgreSQL | No connection provisioned | Not executed |
-| Vercel build and public smoke test | Team authorization pending | Not executed |
+| Vercel build and public smoke test | GitHub Vercel status reports failed automatic deployment; build logs HTTP 403 pending team authorization | Failed deployment; public smoke not executed |
 | Original PDF review | Seven-page AI Internship Assessment.pdf from assessment email | Reviewed; requirements mapped in ACCEPTANCE.md |
 
 Backend assertions cover employee/pod/process CRUD, duplicate IDs, reference rejection and rollback, missing resources, invalid months, seed overwrite refusal, duplicate brand/process demands, employee eligibility, generation, persistence after reread, employee and brand filters, weekly offs, approved leave, company/brand holidays, workload limits, no double booking, stale revisions, manual preview and rejection, no coverage reduction, safe saves, availability impact, optional admin-token enforcement, and reproducible CP-SAT scenarios.

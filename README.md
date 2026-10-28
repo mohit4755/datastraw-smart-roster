@@ -138,7 +138,7 @@ Verified in this environment: **22 Pytest tests and 5 Vitest tests passed**, Typ
 
 See [deployment runbook](docs/DEPLOYMENT.md). `vercel.json` builds `api/index.py` using `@vercel/python` and `frontend/package.json` using `@vercel/static-build`. Routing places `/api`, `/docs` and `/openapi.json` before static SPA fallback. All app hosting stays on Vercel; Neon or another managed PostgreSQL provider is database-only.
 
-A Vercel project has been created and associated with this repository. Team authorization and DATABASE_URL setup are pending. There is no verified live deployment. Vercel Python supports the target Python version and native wheels; OR-Tools installed and tests ran on local Python 3.12. Installed package size, production cold starts, serverless duration and memory still require a real Vercel build and runtime verification. Two solver stages have a combined 20-second wall-clock bound, apart from imports, validation and database work.
+A Vercel project has been created and associated with this repository. Team authorization and DATABASE_URL setup are pending. The GitHub update triggered an automatic Vercel deployment, which failed; its logs require team authorization. The cause has not been diagnosed, and there is no verified live deployment. Vercel Python supports the target Python version and native wheels; OR-Tools installed and tests ran on local Python 3.12. Installed package size, production cold starts, serverless duration and memory still require a real Vercel build and runtime verification. Two solver stages have a combined 20-second wall-clock bound, apart from imports, validation and database work.
 
 ## Limitations and future improvements
 

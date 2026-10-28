@@ -6,7 +6,7 @@
 - Project created: `datastraw-smart-roster`, ID `prj_BYAVXUQbdPieQHAOziBKxuG7ESzR`.
 - Account scope returned by Vercel: `team_tekpNRjkW1Rx4NZQ3pqitNSL`.
 - Team-scoped operations returned HTTP 403 and require the candidate's Vercel consent. A short-lived authorization URL was provided in the conversation; regenerate it if expired.
-- No deployment URL has been verified. Never submit a guessed domain.
+- The GitHub update triggered deployment dpl_2RG4GXjZ1U2NNcfD2hZmkua5YEUX, which failed according to the Vercel GitHub status. Reading its build logs returned HTTP 403 pending team consent. The cause is not known yet. No working deployment URL has been verified. Never submit a guessed domain.
 
 ## Database
 

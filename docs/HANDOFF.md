@@ -7,7 +7,7 @@
 - Repository: https://github.com/mohit4755/datastraw-smart-roster
 - Branch: main.
 - Starting commit: 49bdb18c3848316fe93c0387f3bb27951d53887b.
-- Final code commit: see current GitHub main history and the final conversation report; this report belongs to that commit and cannot embed its own SHA without changing it.
+- Verified implementation commit: 8844226a0bce915df0a175f4ca64b5a66d30d3d7. The subsequent documentation commit records remote synchronization and deployment findings.
 - Modified: app/main.py, requirements.txt, README.md.
 - Created: app/api.py, app/models.py, app/store.py, app/engine.py, app/seed.py, api/index.py, tests/test_persistent.py, frontend source/config/tests/lockfile, vercel.json, .env.example, .gitignore, .python-version, requirements-lock.txt, requirements-dev.txt and docs materials.
 - Existing app/scheduler.py and original tests retained.
@@ -21,13 +21,13 @@
 | Database | SQLAlchemy/SQLite persistence tested; PostgreSQL adapter implemented, hosted database not provisioned/tested |
 | Scheduling | CP-SAT generation and independent validation tested, including original PDF sample patterns |
 | AI | Gemini not implemented; deterministic explanations remain functional |
-| Vercel | Project created, repository associated; team-scoped access denied pending user consent |
+| Vercel | Git connection confirmed by an automatic deployment attempt; deployment dpl_2RG4GXjZ1U2NNcfD2hZmkua5YEUX failed. Build logs return HTTP 403 until team consent |
 | Public URL | None verified |
 
 ## C. Testing
 
 - Final local successful suites: 22 backend + 5 frontend + 1 browser = **28 passing tests**.
-- Production frontend build: passed.
+- Local production-mode frontend build: passed; the automatic Vercel deployment failed and is not a production pass.
 - npm production dependency audit: zero vulnerabilities reported.
 - Browser E2E: one complete workflow passed using an alternative local Chromium runtime after standard browser downloads failed. A fixture initially selected an unavailable or unassigned replacement; the fixture was corrected to explicitly configure an available, eligible backup. Desktop/mobile screenshots were captured and inspected.
 - Earlier failing assertions/configuration were corrected and affected suites rerun; no remaining backend/frontend suite failures in the final verified run.

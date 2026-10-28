@@ -48,8 +48,8 @@ Status means local evidence only unless stated. **Pass** = executed automated ch
 | Fictional realistic sample and assumptions (4, p4–5) | seed.py, README explicit assumptions | Seed mix and reference validation | Pass |
 | Configurable additional rules/entities (4) | CRUD, weekday and staffing configuration | API CRUD and model tests | Pass locally |
 | Explain approach/tool use and decisions (5, p5) | README and TECHNICAL_APPROACH.md; AI-assisted disclosure | Documentation reviewed | Pass documentation |
-| Public app with realistic data (7, p6) | Vercel project and deployment configuration | No completed build/runtime deployment | Blocked: team consent + hosted DB |
-| GitHub, README, setup, .env.example (7) | Existing repository and committed files | Git synchronization verification recorded in HANDOFF | Pending final push verification |
+| Public app with realistic data (7, p6) | Vercel project and deployment configuration | Automatic Vercel deployment failed; logs blocked by HTTP 403 | Blocked: inspect/fix build after consent + hosted DB |
+| GitHub, README, setup, .env.example (7) | Existing repository and committed files | Remote main and approach/test paths verified at implementation commit 8844226 | Pass |
 | 3–5 minute video incl. generation/calendars/conflicts/change (7) | DEMO_SCRIPT.md recording sequence | Narrated recording not created | Blocked |
 | Short technical approach (7) | TECHNICAL_APPROACH.md | Implementation-grounded note | Pass documentation |
 | Accessible LinkedIn profile (7) | Known candidate URL in submission draft | Identity corroborated by prior candidate materials; signed-out access not verified | Partial |

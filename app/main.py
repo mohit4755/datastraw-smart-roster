@@ -5,6 +5,7 @@ from datetime import date
 from typing import Literal
 
 from fastapi import FastAPI, HTTPException
+from app.scheduler import Staff, Demand, Plan, plan_month
 from pydantic import BaseModel, Field
 
 app = FastAPI(title="Datastraw Smart Roster", version="0.1.0")
@@ -123,5 +124,28 @@ def sample_data() -> dict:
 def generate(year: int, month: int) -> RosterResult:
     try:
         return generate_roster(year, month)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+@app.post("/rosters/generate-v2", response_model=Plan)
+def generate_v2(year: int, month: int) -> Plan:
+    """Constraint-aware coverage planning with explicit shortages."""
+    staff = [
+        Staff(id=e.id, pod_id=e.pod_id, weekly_off=e.weekly_off, leave_dates=e.leave_dates)
+        for e in EMPLOYEES
+    ]
+    demands = [
+        Demand(
+            brand=r.brand,
+            process=r.process,
+            eligible_employee_ids=r.employee_ids,
+            min_staff=r.min_staff,
+            operating_weekdays=set(range(7)) if r.calendar != "weekdays_no_holidays" else set(range(6)),
+            holidays_closed=r.calendar != "all_days",
+        )
+        for r in REQUIREMENTS
+    ]
+    try:
+        return plan_month(year, month, staff, demands, HOLIDAYS)
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
